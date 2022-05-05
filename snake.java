@@ -1,20 +1,36 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class snake here.
+ * Write a description of class Snake here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class snake extends Actor
+public class Snake extends Actor
 {
     /**
-     * Act - do whatever the snake wants to do. This method is called whenever
+     * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
         // Add your action code here.
-        move(1);
+        if(Greenfoot.isKeyDown("w")){
+            move(4);
+        }
+        if(Greenfoot.isKeyDown("s")){
+            move(-4);
+        }
+        if(Greenfoot.isKeyDown("a")){
+            turn(-4);
+        }
+        if(Greenfoot.isKeyDown("d")){
+            turn(4);
+        }
+        if(isTouching(Insect.class)){
+            removeTouching(Insect.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnInsect();
+        }
     }
 }
