@@ -12,7 +12,7 @@ public class Snake extends Actor
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int score = 0;
+    public static int score = 0;
     public void act()
     {
         // Add your action code here.
@@ -32,8 +32,13 @@ public class Snake extends Actor
             removeTouching(Insect.class);
             MyWorld world = (MyWorld) getWorld();
             score++;
-            System.out.println("You got a point!: " + score);
+            Label lbl = MyWorld.getLbl();
+            lbl.setValue(score);
             world.spawnInsect();
         }
+    }
+    
+    public static int getScore(){
+        return score;
     }
 }
