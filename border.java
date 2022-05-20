@@ -19,9 +19,9 @@ public class border extends Actor
             removeTouching(Insect.class);
             MyWorld world = (MyWorld) getWorld();
             world.spawnInsect();
-            Snake.score--;
+            Eagle.score--;
             Label lbl = MyWorld.getLbl();
-            lbl.setValue(Snake.score);
+            lbl.setValue(Eagle.score);
         }
     }
 }

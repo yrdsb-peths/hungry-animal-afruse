@@ -13,19 +13,20 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    private static Label lbl = new Label(0, 70);
-    private static Snake s = new Snake();
-    private static border b = new border();
-    private static border b2 = new border();
-    private static border b3 = new border();
-    public static border b4 = new border();
-    public static border b5 = new border();
+    private static Eagle s;
+    private static Label lbl;
+    private border b = new border();
+    private border b2 = new border();
+    private border b3 = new border();
+    public border b4 = new border();
+    public border b5 = new border();
     
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        
+        s = new Eagle();
+        lbl = new Label(s.getScore(), 70);
         GreenfootImage image = s.getImage();
         image.scale(75, 75);
         addObject(lbl, 50, 50);
