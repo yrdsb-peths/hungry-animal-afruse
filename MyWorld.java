@@ -15,11 +15,12 @@ public class MyWorld extends World
      */
     private static Eagle s;
     private static Label lbl;
+    private static Label highS;// =  new Label(s.getScore(), 70);
     private border b = new border();
     private border b2 = new border();
     private border b3 = new border();
-    public border b4 = new border();
-    public border b5 = new border();
+    private border b4 = new border();
+    private border b5 = new border();
     
     public MyWorld()
     {    
@@ -40,7 +41,7 @@ public class MyWorld extends World
     }
     
     public void spawnInsect(){
-        Insect i = new Insect();
+        Snake i = new Snake();
         GreenfootImage img = i.getImage();
         img .scale (30, 30);
         addObject(i, Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));

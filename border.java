@@ -15,8 +15,8 @@ public class border extends Actor
     public void act()
     {
         // Add your action code here.
-        if(isTouching(Insect.class)){
-            removeTouching(Insect.class);
+        if(isTouching(Snake.class)){
+            removeTouching(Snake.class);
             MyWorld world = (MyWorld) getWorld();
             world.spawnInsect();
             Eagle.score--;

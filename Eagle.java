@@ -13,8 +13,18 @@ public class Eagle extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public static int score;
+    private SimpleTimer timer;
+    private GreenfootImage[] eg;
     public Eagle(){
         score = 3;
+        eg = new GreenfootImage[4];
+        for(int i = 1; i < eg.length; i++){
+            eg[i] = new GreenfootImage("images/eg/sprite" + i + ".png");
+            eg[i].scale(100, 100);
+        }
+        setImage(eg[0]);
+        timer = new SimpleTimer();
+        timer.mark();
     }
     public void act()
     {
@@ -31,8 +41,8 @@ public class Eagle extends Actor
         if(Greenfoot.isKeyDown("d")){
             turn(4);
         }
-        if(isTouching(Insect.class)){
-            removeTouching(Insect.class);
+        if(isTouching(Snake.class)){
+            removeTouching(Snake.class);
             MyWorld world = (MyWorld) getWorld();
             score++;
             Label lbl = MyWorld.getLbl();
