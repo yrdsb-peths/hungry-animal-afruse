@@ -18,10 +18,14 @@ public class border extends Actor
         if(isTouching(Snake.class)){
             removeTouching(Snake.class);
             MyWorld world = (MyWorld) getWorld();
-            world.spawnInsect();
+            world.spawnSnake();
             Eagle.score--;
             Label lbl = MyWorld.getLbl();
             lbl.setValue(Eagle.score);
+        }
+        MyWorld world = (MyWorld) getWorld();
+        if(Eagle.score < 0){
+            world.gameOver();
         }
     }
 }

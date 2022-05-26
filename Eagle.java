@@ -18,13 +18,23 @@ public class Eagle extends Actor
     public Eagle(){
         score = 3;
         eg = new GreenfootImage[4];
-        for(int i = 1; i < eg.length; i++){
-            eg[i] = new GreenfootImage("images/eg/sprite" + i + ".png");
+        for(int i = 0; i < eg.length; i++){
+            eg[i] = new GreenfootImage("images/eg/sprite" + (i + 1) + ".png");
             eg[i].scale(100, 100);
         }
         setImage(eg[0]);
         timer = new SimpleTimer();
         timer.mark();
+    }
+    
+    int curIndex = 0;
+    void animate(){
+        if(timer.millisElapsed() > 120){
+            setImage(eg[curIndex]);
+            curIndex++;
+            curIndex %= 3;
+            timer.mark();
+        }
     }
     public void act()
     {
@@ -41,13 +51,16 @@ public class Eagle extends Actor
         if(Greenfoot.isKeyDown("d")){
             turn(4);
         }
+        
+        animate();
+        
         if(isTouching(Snake.class)){
             removeTouching(Snake.class);
             MyWorld world = (MyWorld) getWorld();
             score++;
             Label lbl = MyWorld.getLbl();
             lbl.setValue(score);
-            world.spawnInsect();
+            world.spawnSnake();
         }
     }
     

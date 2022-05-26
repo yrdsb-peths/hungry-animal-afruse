@@ -15,7 +15,6 @@ public class MyWorld extends World
      */
     private static Eagle s;
     private static Label lbl;
-    private static Label highS;// =  new Label(s.getScore(), 70);
     private border b = new border();
     private border b2 = new border();
     private border b3 = new border();
@@ -28,8 +27,6 @@ public class MyWorld extends World
         super(600, 400, 1);
         s = new Eagle();
         lbl = new Label(s.getScore(), 70);
-        GreenfootImage image = s.getImage();
-        image.scale(75, 75);
         addObject(lbl, 50, 50);
         addObject(s, 300, 200);
         addObject(b, 600, 200);
@@ -37,10 +34,15 @@ public class MyWorld extends World
         addObject(b3, 600, 400);
         addObject(b4, 600, 100);
         addObject(b5, 600, 0);
-        spawnInsect();
+        spawnSnake();
+    }
+    // game over
+    public void gameOver(){
+        Label gameOver = new Label("Game Over", 100);
+        addObject(gameOver, 300, 200);
     }
     
-    public void spawnInsect(){
+    public void spawnSnake(){
         Snake i = new Snake();
         GreenfootImage img = i.getImage();
         img .scale (30, 30);
