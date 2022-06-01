@@ -1,2 +1,3 @@
-# hungry_animal
+# Greenfoot Project
+# Initial files
  
